@@ -1,0 +1,328 @@
+@media only screen and (min-width: 320px) {
+	.wrapper{  /*320 iphone 5*/  /*160px 递增*/
+	    
+	    background-image: none;
+	    
+	    height: auto; /*不限定高度，这句不能少*/
+	}
+	.content {
+	    width: 100%;
+	    max-width: 1000px;
+	    padding-top: 20px;
+	    padding-right: 15px;
+	    padding-left: 15px;
+	    /*padding-top: 20px;*/
+	    margin-right: auto;
+	    margin-left: auto;
+	    height:auto;
+	    /*background-color: red;*/
+	}
+
+	#faq_wrap {
+		padding: 20px 0;
+		/*width: 1000px;*/
+		width: 100%;
+		margin: 0 auto;
+		margin-top: 20px;
+		min-height: 700px;
+	}
+
+	#faq_wrap .faq {
+		margin: 0 auto;
+		width: 100%;
+		
+	}
+	#faqs_wrap p{
+		font-size: 16px;
+		line-height: 160%;
+		
+	}
+
+
+
+	#headingSection{
+		/*background-color:#7b8b98;*/
+		/*padding:0 0;*/
+		/*padding-left:60px;*/
+		position:relative;
+		/*border:1px solid #8b9ba7;
+		border-bottom:none;*/
+		font-size: 20px;
+		color:#333;
+	}
+
+	#faqSection{
+		/*background:url('images/faq_bg.jpg') repeat-y #fff;*/
+		/*padding:0px 0 0 0;*/
+		margin-top: 0;
+		
+		
+	}
+	#faqSection p{
+		font-size: 16px;
+		line-height: 160%;
+	}
+
+
+
+	/* The expand / collapse button Download by http://www.codefans.net*/
+
+	a.button{
+		background:url('../images/buttons.png') no-repeat;
+		width:80px;
+		height:38px;
+		position:absolute;
+		right:0px;
+		top:5px;
+		text-indent:-9999px;
+		overflow:hidden;
+		border:none !important;
+	}
+
+	a.button.expand:hover{ background-position:0 -38px;}
+	a.button.collapse{ background-position:0 -76px;}
+	a.button.collapse:hover{ background-position:0 bottom;}
+
+	/* Definition Lists */
+
+	#faqSection dt{
+		color:#ffffff;
+		font-size: 16px;
+		margin-top:2px;
+		padding:15px 0;
+		padding-left:25px;
+		position:relative;
+		cursor:pointer;
+		/*border:1px solid transparent;*/
+		background: #436ab3;
+		
+	}
+
+	#faqSection dt:hover{ 
+		color:orange;
+		}
+
+	#faqSection dt .icon{
+		background:url('../images/bullets.png') no-repeat;
+		height:12px;
+		left:0;
+		position:absolute;
+		top:17px;
+		width:12px;
+	}
+
+	#faqSection dt.opened .icon{ background-position:left bottom;}
+
+	#faqSection dd{
+		font-size:14px;
+		color:#666;
+		
+		padding:20px 0;
+		padding-left:25px;
+		
+		display:none;
+		background: #ffffff;
+		margin-bottom: 20px;
+		border-bottom: dashed   #eeeeee 0.5px;;
+	}
+
+	#faq_wrap h1 {
+	    width: 100%;
+	    height: 40px;
+	    line-height: 40px;
+	    font-size: 36px;
+	    color: #333;
+	    text-indent: 0px;
+	    border-bottom: 1px solid #666;
+	    letter-spacing: 1px;/*每个字中间空1px*/
+	    margin: 0 0 10px 0;
+	}
+	#faq_wrap h1 > span{
+	    border-bottom: 1px solid #c93756;
+	}
+	#faq_wrap h2{
+	    font-size: 10px;
+	    height:50px;
+	    line-height: 50px;
+	    background: #F9F9F9;
+	    border-left: 5px solid #C93756;
+	    /*border-bottom: none;*/
+	    padding-left: 15px;
+	    letter-spacing: 1px;/*每个字中间空1px*/
+	    margin-bottom: 15px;
+	}
+}
+
+
+@media only screen and (min-width: 375px) {
+	#faq_wrap h2{
+	    font-size: 14px;
+	}
+	
+}
+@media only screen and (min-width: 414px) {
+	#faq_wrap h2{
+	    font-size: 16px;
+	}
+	
+}
+
+@media only screen and (min-width: 1025px) {
+	.wrapper{  /*320 iphone 5*/  /*160px 递增*/
+	    
+	    background-image: none;
+	    
+	    height: auto; /*不限定高度，这句不能少*/
+	}
+	.container-fluid { 
+	    
+	    margin-top: 50px; /*在这里控制内容的上下 margin 和 padding*/ /* header 50 + 间距 20 = 70*/
+	}
+	.content {
+	    width: 100%;
+	    max-width: 1000px;
+	    padding-top: 0;
+	    padding-right: 10px;
+	    padding-left: 10px;
+	    /*padding-top: 20px;*/
+	    margin-right: auto;
+	    margin-left: auto;
+	    height:auto;
+	    /*background-color: red;*/
+	}
+
+	#faq_wrap {
+		padding: 0 0 20px 0;
+		width: 1000px;
+		margin: 0 auto;
+		margin-top: 0;
+		min-height: 700px;
+	}
+
+	#faq_wrap .faq {
+		margin: 0 auto;
+		width: 100%;
+		
+	}
+	#faqs_wrap p{
+		font-size: 16px;
+		line-height: 160%;
+		
+	}
+
+
+
+	#headingSection{
+		/*background-color:#7b8b98;*/
+		/*padding:0 0;*/
+		/*padding-left:60px;*/
+		position:relative;
+		/*border:1px solid #8b9ba7;
+		border-bottom:none;*/
+		font-size: 20px;
+		color:#333;
+	}
+
+	#faqSection{
+		/*background:url('images/faq_bg.jpg') repeat-y #fff;*/
+		/*padding:0px 0 0 0;*/
+		margin-top: 20px;
+		
+		
+	}
+	#faqSection p{
+		font-size: 16px;
+		line-height: 160%;
+	}
+
+
+
+	/* The expand / collapse button Download by http://www.codefans.net*/
+
+	a.button{
+		background:url('../images/buttons.png') no-repeat;
+		width:80px;
+		height:38px;
+		position:absolute;
+		right:0px;
+		top:5px;
+		text-indent:-9999px;
+		overflow:hidden;
+		border:none !important;
+	}
+
+	a.button.expand:hover{ background-position:0 -38px;}
+	a.button.collapse{ background-position:0 -76px;}
+	a.button.collapse:hover{ background-position:0 bottom;}
+
+	/* Definition Lists */
+
+	#faqSection dt{
+		color:#ffffff;
+		font-size: 16px;
+		margin-top:2px;
+		padding:15px 0;
+		padding-left:25px;
+		position:relative;
+		cursor:pointer;
+		/*border:1px solid transparent;*/
+		background: #436ab3;
+		
+	}
+
+	#faqSection dt:hover{ 
+		color:orange;
+		}
+
+	#faqSection dt .icon{
+		background:url('../images/bullets.png') no-repeat;
+		height:12px;
+		left:0;
+		position:absolute;
+		top:17px;
+		width:12px;
+	}
+
+	#faqSection dt.opened .icon{ background-position:left bottom;}
+
+	#faqSection dd{
+		font-size:14px;
+		color:#666;
+		
+		padding:20px 0;
+		padding-left:25px;
+		
+		display:none;
+		background: #ffffff;
+		margin-bottom: 20px;
+		border-bottom: dashed   #eeeeee 0.5px;;
+	}
+
+	#faq_wrap h1 {
+	    width: 100%;
+	    height: 40px;
+	    line-height: 40px;
+	    font-size: 36px;
+	    color: #333;
+	    text-indent: 0px;
+	    border-bottom: 1px solid #666;
+	    letter-spacing: 1px;/*每个字中间空1px*/
+	    margin: 0 0 10px 0;
+	}
+	#faq_wrap h1 > span{
+	    border-bottom: 1px solid #c93756;
+	}
+	#faq_wrap h2{
+	    font-size: 24px;
+	    height:50px;
+	    line-height: 50px;
+	    background: #F9F9F9;
+	    border-left: 5px solid #C93756;
+	    /*border-bottom: none;*/
+	    padding-left: 15px;
+	    letter-spacing: 1px;/*每个字中间空1px*/
+	    margin-bottom: 15px;
+	}
+}
+
+

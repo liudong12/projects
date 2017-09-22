@@ -1,0 +1,235 @@
+<header class="mobile-header">
+    <div class="header-wrap">
+        <!-- 移动端的那个符号 -->
+        <div class="cd-dropdown-wrapper"><!-- cd-dropdown === mobile-nav -->
+            <a class="cd-dropdown-trigger" href="#0">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <!-- <i class="menu-icon" aria-hidden="true"></i> -->
+            </a>
+            <!-- 备注： class="cd-dropdown" 的<nav class="cd-dropdown">...</nav>也可以放在这里 -->
+        </div> <!-- 结束 cd-dropdown-wrapper -->
+
+        <div class="mobile-search-wrapper">
+            <a id="showTop" class="mobile-search-trigger"> 
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <span>Search</span>
+                <!-- <i class="search-icon" aria-hidden="true"></i><span>Search<span> -->
+            </a>
+        </div><!-- 结束 mobile-search-wrapper -->
+
+        <div class="mobile-cart-wrapper">
+            <a class="mobile-cart-trigger" data-isOpen="false" href="/shopping-cart/"> 
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i> <!-- <span>Bag<span> -->
+                <!-- <i class="bag-icon" aria-hidden="true"></i> -->
+                <span class="badge">{{session.cart.totalQty}}
+                <!-- Session::has('cart') ? '('. Session::get('cart')->totalQty .')' : '' -->
+
+                    {{!-- {{Session::has('cart') ? Session::get('cart')->totalQty: ''}}  --}}
+                </span>
+            </a>               
+        </div><!-- 结束 mobile-cart-wrapper -->
+    </div>
+    <div class="logo">              
+        <a href="/"> DongShop</a>
+    </div>
+</header>
+
+
+<!-- 导入 desktop 的导航条................................................-->
+<div id="desktop-nav" class="desktop-header">
+    <header class="headerRoom">
+        <div id="top" class="a">
+            <div class="center">
+                <p><a>ENGLISH  </a>/<a>  中文</a></p>
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="logo">
+                <a href="/"></a>
+            </div>
+            <nav id="mainNav">
+                <ul>
+                    <li>
+                        <a href="/" class="index">Home</a>
+                        <!--<ul>
+                            <li><a href="#">Home 1</a></li>
+                            <li><a href="#">Home 2</a></li>
+                            <li><a href="#">Home 3</a></li>
+                        </ul>-->
+                    </li>
+                    <li>
+                        <a href="/portfolio" >Portfolio</a>
+                        <!--<ul>
+                            <li><a href="#" data-cta-target=".js-modal-1">Restrant Industry</a></li>
+                            <li><a href="#" data-cta-target=".js-modal-2">Food Industry</a></li>
+                            <li><a href="#" data-cta-target=".js-modal-3">Fitness Industry</a></li>
+                            <li><a href="#" data-cta-target=".js-modal-4">Real Estate Industry</a></li>
+                            <li><a href="#" data-cta-target=".js-modal-5">Wedding Service Industry</a></li>
+                            <li><a href="#" data-cta-target=".js-modal-6">Spa Service Industry</a></li>
+                            <li><a href="#" data-cta-target=".js-modal-7">Media Service Industry</a></li>
+                            <li><a href="#" data-cta-target=".js-modal-8">Legal Service Industryy</a></li>
+                            <li><a href="#" data-cta-target=".js-modal-9">Decoration Service Industry</a></li>
+                        </ul>-->
+                    </li>
+                    <li>
+                        <a href="/about" >About</a>
+                        <!--<ul>
+                            <li><a href="#">Follow us on Twitter</a></li>
+                            <li><a href="#">Find us on Facebook</a></li>
+                        </ul>-->
+                    </li>
+                    <li>
+                        <a href="/contact" >Contact</a>
+                        <!--<ul>
+                            <li><a href="#">Contact 1</a></li>
+                            <li><a href="#">Contact 2</a></li>
+                            <li><a href="#">Contact 3</a></li>
+                            <li><a href="#">Contact 4</a></li>
+                        </ul>-->
+                    </li>
+                    <li>
+                        <a href="process.php" {{!-- class="arrow" --}}>Support<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul>
+                            <li><a href="/process">Process</a></li>
+                            <li><a href="faq">FAQS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="header_space"></div>
+</div>
+<!-- 结束导入desktop的导航条............................................. -->
+    
+
+<!-- ................ 以下为点击移动端导航条以后弹出的菜单 ........... -->
+<nav class="cd-dropdown">
+    <h2><!-- Menu --></h2>
+    <a href="#0" class="cd-close">Close</a>
+    <ul class="cd-dropdown-content">
+                <!-- <li>
+                    <form class="cd-search">
+                        <input type="search" placeholder="Search...">
+                    </form>
+                    </li>  -->
+        <li><a href="/">Home</a></li>
+                
+
+        <li>  <!-- 第二a组 -->
+            <a href="/portfolio">Portfolio</a>            
+        </li> <!-- .has-children -->  <!-- end 第二a组 -->
+
+        <li>  <!-- 第二b组 -->
+            <a href="/about">About</a>
+        </li> <!-- .has-children -->  <!-- end 第二b组 -->
+
+        <li>  <!-- 第二c组 -->
+            <a href="/contact">Contact</a>
+        </li> <!-- .has-children -->  <!-- end 第二c组 -->
+
+
+        <li class="has-children">  <!-- 第四组 -->
+            <a href="/support">Support</a>
+
+            <ul class="cd-dropdown-gallery is-hidden">
+                <li class="go-back"><a href="/support">Support</a></li>
+                <li class="see-all"><a href="/process">Process</a></li>
+                <li class="see-all"><a href="faq">FAQ</a></li>
+            </ul> <!-- .cd-dropdown-gallery -->
+        </li> <!-- .has-children -->   <!-- end 第四组 -->
+
+        <li class="cd-divider"><!-- Divider --></li>
+
+        <li><a href="">Sign In</a></li>
+        <li><a href="">Create Account</a></li>
+        <li><a href="">Shopping Bag</a></li>
+        <li><a href="#">Contact Us</a></li>
+    </ul> <!-- .cd-dropdown-content -->
+</nav> <!-- .cd-dropdown -->
+
+<!-- ...................... 以下为点击移动端头部的购物车符号以后弹出的购物车 ........... -->
+<div id="reload">
+    <ul class="mobile-cart" >               
+        <li class="arrow-cart header-bag-title">Shopping Bag</li>
+        <li class="divider"></li> 
+        {{#ifCond session.cart.totalQty ">" 0}} 
+            <div class="dropdown-inner">
+                {{# each session.cart.items }}
+                    <li>
+                        {{!-- <dl>
+                            <dt>
+                                <img src="{{$product['item']['imagePath']}}" alt="..." class="img-responsive">
+                            </dt>
+                            <dd class="header-cart-item-title">
+                                {{$product['item']['title']}}
+                            </dd>
+                            <dd class="header-cart-item-qty">
+                                Quality:&nbsp{{$product['qty']}}
+                            </dd>
+                            <dd class="header-cart-item-price">
+                                Price:&nbsp${{$product['price']}}
+                            </dd>
+                        </dl> --}}
+                        <a href="" class="header-cart-item">
+                            <img src="{{this.item.imagePath}}" alt="..." class="img-responsive">
+                            <div class="header-cart-item-info">
+                            <ul class="header-cart-item-details">
+                                <li class="header-cart-item-title">
+                                    {{this.item.title}}
+                                </li>
+                                <li class="header-cart-item-sku">
+                                    SKU:
+                                </li>
+                                <li class="header-cart-item-sku">
+                                    {{this.item.product_sku}}
+                                </li>
+                                <li class="header-cart-item-sku">
+                                    Size:&nbsp{{this.item.sizeName}}
+                                </li>
+                                <li class="header-cart-item-qty">
+                                    Quality:&nbsp{{this.qty}}
+                                </li>
+                                <li class="header-cart-item-price">{{!-- 下面本来是 $product['price'] --}}
+                                    Price:&nbsp${{formatCurrency this.price}}
+
+
+                                </li>
+                            </ul>
+                            </div>
+                        </a>
+                    </li>                    
+                    {{#if @last}}
+                        
+                    {{else}}
+                        <li class="divider"></li>
+                    {{/if}}
+                {{/each}}
+            </div>
+
+            <li class="divider"></li>
+            <li class="header-bag-subtotal">{{!-- 下面本来是 $totalPriceInChart --}}
+                <span class="sub-total">Sub Total:</span>&nbsp&nbsp&nbsp<span class="sub-total-amount">$ {{formatCurrency session.cart.totalPrice}}</span>
+            </li>
+            <li class="divider"></li>
+            <li class="header-bag-checkout">
+                <a href="/checkout-step-one" type="button" class="btn btn-success header-checkout-btn">CHECKOUT
+                </a>
+            
+                <a href="/product.shoppingCart" type="button" class="btn btn-success header-details-btn">VIEW BAG DETAILS
+                </a>
+            </li>
+        {{else}}
+            <li class="header-bag-empty">Currently empty</li>
+        {{/ifCond}}                                           
+    </ul>
+</div>
+
+ <!-- ...................... 以下为点击移动端头部的搜索框以后弹出的端搜索框 ........... -->
+<nav class="mobile-search" >                               
+    <form class="mobile-search-form">
+        <input type="search" placeholder="Search..." class="input-search" autofocus>
+        <input type="submit" class="btn-search" value="GO">
+    </form>
+</nav>

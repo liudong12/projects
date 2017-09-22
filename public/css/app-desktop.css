@@ -1,0 +1,602 @@
+/*app-desktop.css或 globle-desktop.css   在这里放全局的desktop端的代码*/
+
+@media only screen and (min-width: 1025px) {
+    /*-----BODY -----*/
+    body {}
+    /*-----WRAPPER -----*/
+    .wrapper{
+        background: url("../images/main-bg.jpg") no-repeat top center;
+        /*background-size: 100%;*/
+        background-size: 100% 780px;
+        /*height:780px;*/
+    }
+    /*-----CONTAINER -----*/
+    .container-fluid {
+        /*margin-top: 30px;*/ /*大屏在这里控制内容的上下 margin 和 padding*/ /* header 100 + 间距 20 = 70*/
+        /*position: relative;
+        margin-top: 0;
+        top:70px;*/
+    }
+    .content {
+        min-height: 600px;  /*防止在没东西的时候，header和footer靠的太近*/
+        /*margin-top: 50px;*/  /*这个值要和header的高度一样*/
+        /*padding-top: 40px;*//*顶部空出的距离*/
+    }
+
+    /*-----HEADER -----*/
+    .mobile-header{
+        display: none;
+    }
+    header {
+        
+        width: 100%;
+        min-width: 1000px;
+        height: 154px;
+        border-bottom: 1px solid #fff;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0);
+        position: fixed;/*top:0;*/
+        z-index: 9999;/*要是不置顶的话，拖动的时候，左边的字会跑到上面去*/
+        /*background: #000;
+        filter:alpha(opacity=40);  
+        -moz-opacity:0.4;  
+        -khtml-opacity: 0.4;  
+        opacity: 0.4;  */
+        background-color: rgba(0,0,0,0.2);
+    }
+    .deepColor{
+        /*filter:alpha(opacity=80);  
+        -moz-opacity:0.8;  
+        -khtml-opacity: 0.8;  
+        opacity: 0.8;*/
+        background-color: rgba(0,0,0,0.8);
+    }
+    .center {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    .logo {
+        padding-top: 12px;
+        float: left;
+    }
+
+    .logo a {
+        height: 86px;
+        width: 358px;
+        background: url("../images/logo.png") no-repeat 0 0;
+        display: block;
+    }
+
+    .logo a:hover {
+        background: url("../images/logo.png") no-repeat 0 -85px;
+    }
+    
+    /*--------------------头部置顶 开始------------------------*/
+    .header_space {/*用来填补头部置顶以后的空白*/
+        height: 155px;
+    }
+
+    .beforescroll {
+        height: 158px;
+    }
+
+    .afterscroll {
+        height: 218px;
+    }
+
+    .headerRoom {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        transition: top .5s;
+    }
+
+    .hideHeader {
+        top: -40px;
+    }
+
+    .showHeader {
+        top: 0;
+        z-index: 9999;
+    }
+
+    #process_wrap {
+        display: block;
+
+    }
+    #process_wrap_mobile{
+        display: none;
+    }
+    /*----------------头部置顶 结束----------------------------------*/
+    
+
+
+
+    footer {
+        /*padding: 20px 0 0 0;*/
+        width: 100%;
+        min-width: 1000px;
+        /*height: 300px;*/
+        background: url("../images/foot_bg.png") repeat 0 0;
+    }
+
+    
+
+    footer dd.copyright {
+        font-size: 14px;
+        /*margin-top: 15px;*/
+    }
+
+    footer .copyright p {
+        height: 22px;
+        line-height: 22px;
+        color: #FFF;
+        text-align: center;
+    }
+
+    #desktop-nav{
+        display: block;
+    }
+    .mobile-cart-wrapper {
+        display: none;
+    }
+    .mobile-search-wrapper {
+        display: none;
+    }
+    .cd-dropdown-wrapper{
+        display: none;
+    }
+    .cd-dropdown{
+        display: none;
+    }
+    
+    .desktop-user-wrapper {
+        display: inline-block;
+        height: 14px;
+        float: right;
+        margin-top: 20px;
+        /*按钮的位置*/
+        margin-right: 150px;
+        color: #222222;  /*本来是 #2f2f2f*/
+    }
+    .desktop-user-trigger {
+        position: relative;
+        /*给下面的菜单做参考*/
+        margin-left: 20px;
+    }
+    .sign-in {}
+    .desktop-user-trigger i {
+        vertical-align: baseline;
+        position: relative;
+        top:1px;
+        font-size: 14px;
+    }
+    .desktop-user-trigger span {
+        display: inline-block;
+        margin-left: 6px;
+        vertical-align: baseline;
+        position: relative;
+        top:-1px;
+    }
+    .desktop-search-wrapper {
+        display: block;
+        /*前面已经隐藏*/
+    }
+    .desktop-search {
+        position: relative;
+        /*给下面的做参照*/
+        top: 15px;
+    }
+    .desktop-search input {
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        padding: 5px 10px;
+        border: none;
+        outline: 0;
+        position: absolute;
+        top: 0;
+        right: 40px;
+        z-index: 9999;
+    }
+    .desktop-search button {
+        width: 40px;
+        height: 30px;
+        line-height: 30px;
+        border: none;
+        background: #c1b497;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .desktop-search .form-control:focus {
+        border: none;
+        outline: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .desktop-search input[type=text] {
+        -webkit-transition: all .5s;
+        -moz-transition: all .5s;
+        transition: all .5s;
+    }
+    .desktop-search input[type=text]:focus {
+        width: 300px;
+        border: none;
+        outline: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    /*.navbar-form .form-control {
+        display: inline-block;
+        width: 80px;
+        vertical-align: middle;
+    }*/
+    
+    .desktop-cart-wrapper {
+        display: inline-block;
+
+        height: 14px;
+        float: right;
+        margin-top: 20px;
+        /*按钮的位置*/
+    }
+    .desktop-cart-trigger {
+        position: relative;
+        /*给下面的菜单做参考*/
+    }
+    .desktop-cart {
+        position: absolute;
+        top: 40px;
+        left: -140px;
+        z-index: 1000;
+        display: none;
+        background-color: #fff;
+        border-top: 4px solid #fff;
+        border-left: 0;
+        border-bottom: 0;
+        border-right: 0;
+        /*箭头下面的那条线*/
+        color: #222222;  /*本来是 #2f2f2f*/
+        /*float: left;
+      min-width: 160px;
+      padding: 5px 0;
+      margin: 2px 0 0;
+      font-size: 14px;
+      text-align: left;
+      list-style: none;
+      background-color: #fff;
+      -webkit-background-clip: padding-box;
+              background-clip: padding-box;
+      border: 1px solid #ccc;
+      border: 1px solid rgba(0, 0, 0, .15);
+      border-radius: 4px;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+              box-shadow: 0 6px 12px rgba(0, 0, 0, .175);*/
+              
+    }
+    .desktop-cart .header-bag-title {
+        width: 300px;
+        /*line-height: 40px;
+        text-align: center;*/
+    }
+    /*.dropdown-inner{
+        width: 220px;
+    }*/
+    .bag {
+        display: inline-block;
+    }
+    .bag i {
+        display: inline-block;
+        /*font-size: 14px;
+        line-height: 14px;*/
+        /*vertical-align: center;*/
+    }
+    .bag span {
+        font-size: 14px;
+        line-height: 14px;
+        margin-left: 5px;
+        vertical-align: baseline;
+        position: relative;
+        top:-1px;
+    }
+    li.arrow-cart:before {
+        /* the pointer tip */
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        border: 5px solid transparent;
+        border-bottom-color: #fff;
+        /*箭头的颜色*/
+        /*left:50%;*/
+        top: -14px;
+        /*箭头的位置，负的越大越往上*/
+        /*margin-left: 50px;*/
+        left: 140px
+    }
+    .user {
+        /*font-size: 14 px;
+        width:220px;*/
+        /*text-align: center;
+        margin-top: 0 !important;
+        padding-bottom: 10px;*/
+        position: absolute;
+        top: 40px;
+        left: -105px;
+        /*z-index: 999999;*/
+        display: none;
+        background-color: #fff;
+        border-top: 4px solid #fff;
+        /*箭头下面的那条线*/
+        color: #222222;  /*本来是 #2f2f2f*/
+
+    }
+    .dropdown-menu{
+        z-index: 999999;
+    }
+
+    /*ul.user{
+        max-height:0px;
+        overflow:hidden;   
+        -webkit-transition:max-height 0.4s linear;
+        -moz-transition:max-height 0.4s linear;
+        transition:max-height 0.4s linear;
+
+    }
+    
+    .desktop-user-trigger:hover ul{
+        max-height: 400px;
+    }*/
+
+
+    .user li {
+        width: 220px;
+        line-height: 50px;
+        text-align: center;
+    }
+    .user li a {
+        color: #222222;  /*本来是 #2f2f2f*/
+        font-size: 16px;
+    }
+    .user li i {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 14px;
+        vertical-align: top;
+    }
+    li.arrow-user:before {
+        /* the pointer tip */
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        border: 5px solid transparent;
+        border-bottom-color: #fff;
+        /*箭头的颜色*/
+        /*left:50%;*/
+        top: -14px;
+        /*箭头的位置，负的越大越往上*/
+        right:105px;
+       /* margin-left: 25px;*/
+    }
+
+    /*-----CONTENT -----*/
+    .content {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    }
+    .thumbnail {
+    display: block;
+    /*padding: 4px;*/
+    /*保留*/
+    margin-bottom: 40px;
+    line-height: 1.42857143;
+    background-color: #ffffff;  /*本来是 #fffef7*/
+    /*border: 1px solid #ddd;*/
+    /*保留*/
+    /*border-radius: 4px;*/
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    margin-right: 20px;
+    margin-left: 20px;
+    }
+
+    .badge {
+        /*vertical-align: top;*/
+    }
+
+
+
+
+
+
+    .bag-icon{
+        display: inline-block;
+        width:16px;
+        height:16px;
+        background: url(../images/bag-16x16.png) no-repeat;
+    }
+    .user-icon{
+        display: inline-block;
+        width:16px;
+        height:16px;
+        background: url(../images/user-16x16.png) no-repeat;
+    }
+
+    /*头部顶端时隐时现的那一块*/
+    #top {
+        width: 100%;
+        min-width: 1000px;
+        height: 40px;
+        background: url("../images/foot_bg.png") repeat-x 0 0;
+        border-bottom: 1px solid #c93756;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #top p {
+        color: #fff;
+        font-size: 12px;
+        float: right;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    #top p a {}
+
+    #top p a:hover {
+        text-decoration: underline;
+    }
+
+    #mainNav {
+        float: right;
+        margin: 60px 0 0 0;
+        font-family: 'Open Sans', arial;
+    }
+
+    /*desktop 的导航条*/
+    #mainNav > ul {}
+
+    #mainNav > ul > li {
+        float: left;
+        padding-left: 8px;
+        margin: 0 0 0 15px;
+        position: relative;
+    }
+
+    #mainNav > ul > li > a {
+        color: #fff;
+        padding: 0 15px 0 0;
+        display: block;
+        /*background: bisque;*/
+        font-size: 18px;
+        /*background: url("../images/arrow.png") no-repeat right center;*/
+    }
+    #mainNav > ul > li > a.arrow{
+        background: url("../images/arrow.png") no-repeat right center;  /*使用图片*/
+    }
+
+    #mainNav > ul > li > a {  /*使用 fa-angle-down*/
+        position: relative;
+    }
+    #mainNav .fa-angle-down{  /*使用 fa-angle-down*/
+        position: absolute;
+        left:70px;
+        top:2px;
+    }
+
+    #mainNav > ul > li > a:hover {
+        text-decoration: underline;
+        color: #c93756;
+    }
+    #mainNav > ul > li > a:active{
+        color: #c93756;
+    }
+    #mainNav > ul > li > a:focus{
+        color: #c93756;
+    }
+
+    #mainNav ul li .current{
+        color: #c93756;
+    }
+
+    #mainNav li ul {
+        position: absolute;
+        list-style: none;
+        text-align: center;
+        width: 200px;
+        left: 100%;
+        margin-left: -105px;/*调节菜单的位置*/
+        top: 25px;
+        filter:alpha(opacity=95);  
+        -moz-opacity:0.95;  
+        -khtml-opacity: 0.95;  
+        opacity: 0.95; 
+        /*font: bold 14px 'Open Sans Condensed', sans-serif;*/
+        font-family: 'Open Sans', arial;
+        font-weight: 700;
+        font-size: 16px;
+        /* This is important for the show/hide CSS animation */
+        max-height: 0px;
+        overflow: hidden;
+        -webkit-transition: max-height 0.4s linear;
+        -moz-transition: max-height 0.4s linear;
+        transition: max-height 0.4s linear;
+    }
+
+    #mainNav li ul li {
+        background-color: #fff;
+        border-bottom: 1px solid silver;
+    }
+
+    #mainNav li ul li:first-child {
+        border-top: 4px solid #333;
+        /*箭头下面的那条线*/
+    }
+
+    #mainNav li ul li a {
+        padding: 12px;
+        color: #333 !important;
+        text-decoration: none !important;
+        display: block;
+    }
+
+    #mainNav li ul li:nth-child(odd) {
+        /* zebra stripes */
+        background-color: #fff;
+    }
+
+    #mainNav li ul li:hover {
+        background-color: #eee;
+        color: #222;
+    }
+
+    #mainNav li ul li:first-child {
+        /*border-radius:3px 3px 0 0;*/
+        margin-top: 25px;
+        position: relative;
+    }
+
+    #mainNav li ul li:first-child:before {
+        /* the pointer tip */
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        border: 5px solid transparent;
+        border-bottom-color: #313131;
+        left: 50%;
+        top: -13px;/*箭头的位置，负的越大越往上*/
+        margin-left: -5px;
+    }
+
+    #mainNav li ul li:last-child {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+
+    /* This will trigger the CSS */
+
+
+    /* transition animation on hover */
+
+    #mainNav li:hover ul {
+        max-height: 600px;/* 下拉菜单的最大高度 */
+        /* Increase when adding more dropdown items */
+    }
+
+    /*公共的部分*/
+    
+
+
+
+    
+
+}
+
+

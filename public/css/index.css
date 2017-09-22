@@ -1,0 +1,138 @@
+@CHARSET "UTF-8";
+
+#index_wrap {
+	max-width: 1920px;
+	margin: 0 auto;
+	
+	
+}
+
+
+
+#index_main {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top:15px;
+}
+
+
+
+#index_main .left {
+	width: 460px;
+	float: left;
+	margin: 0 40px 10px 0;
+}
+
+#index_main .left dl {
+	width: 460px;
+	float: left;
+	margin: 10px 0px 20px 0;
+}
+
+#index_main .left dl dt.list_pic {
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	display: inline-block;
+	float: left;
+	border-radius: 4px;
+	
+	font-size: 36px;
+	color: #fff;
+	margin: 0 20px 0 0;
+	
+}
+#index_main .left dl dt.image_icon{
+	background: url("../images/image_icon.png") repeat-x 0 0; 
+}
+#index_main .left dl dt.shopping_icon{
+	background: url("../images/shopping_icon.png") repeat-x 0 0; 
+}
+#index_main .left dl dt.mobile_icon{
+	background: url("../images/mobile_icon.png") repeat-x 0 0; 
+}
+#index_main .left dl dt.seo_icon{
+	background: url("../images/seo_icon.png") repeat-x 0 0; 
+}
+
+#index_main .left dl dd.list_title {
+	width: 300px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	font-weight: bold;
+	float: left;
+	padding: 0 0 0 0;
+}
+
+#index_main .left dl dd.list {
+	width: 360px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	float: left;
+	padding: 10px 0 0 0;
+}
+
+
+
+#index_main .right {
+	width: 460px;
+	float: right;
+}
+
+#index_main .right dl {
+	width: 460px;
+	float: left;
+	margin: 10px 0px 20px 0;
+}
+
+#index_main .right dl dt.list_pic {
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	display: inline-block;
+	float: left;
+	border-radius: 4px;
+	
+	font-size: 36px;
+	color: #fff;
+	margin: 0 20px 0 0;
+	
+}
+#index_main .right dl dt.check_icon{
+	background: url("../images/check_icon.png") repeat-x 0 0; 
+}
+#index_main .right dl dt.detail_icon{
+	background: url("../images/detail_icon.png") repeat-x 0 0; 
+}
+#index_main .right dl dt.support_icon{
+	background: url("../images/support_icon.png") repeat-x 0 0; 
+}
+#index_main .right dl dt.platform_icon{
+	background: url("../images/platform_icon.png") repeat-x 0 0; 
+}
+
+#index_main .right dl dd.list_title {
+	width: 300px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	font-weight: bold;
+	float: left;
+	padding: 0 0 0 0;
+}
+
+#index_main .right dl dd.list {
+	width: 360px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	float: left;
+	padding: 10px 0 0 0;
+}
+h2{
+	margin-bottom: 15px;
+}

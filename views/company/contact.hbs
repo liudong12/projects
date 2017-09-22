@@ -1,0 +1,499 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvQv_6N2dXIO-URJ6ydNvzdthM6MpZ-UI&callback=initMap">
+	
+</script>
+<script>
+	// function initialize() {
+	// 	var myLatlng = new google.maps.LatLng(40.63541,-74.0361867);//  40.5127518, -74.3747926
+	// 	var mapOptions = {
+	// 		zoom: 16,
+	// 		center: myLatlng
+	// 	}
+	// 	var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	// 	var marker = new google.maps.Marker({
+	// 		position: myLatlng,
+	// 		map: map,
+	// 		title: 'Hello World!'
+	// 	});
+	// }
+	// google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+<script>
+	function checkName() {
+		//	$(".help-block").remove();//清除所有于submit 有关的提示
+		//   $('br.help').remove();
+	     
+		var formData = {//先从contact.php传到这里，然后再传到submit.php
+	            'name' : $('input[name="name"]').val(),
+	            'email' : $('input[name="email"]').val(),
+	            'tel' : $('input[name="tel"]').val(),
+	            'message' : $('textarea[name="message"]').val(),
+	            'code' : $('input[name="6_letters_code"]').val()
+	        };
+	        //alert(JSON.stringify(formData));
+	        
+	        
+		$("#check-name-status").removeClass('error-status');
+	    $("#check-name-status").removeClass('success-status');
+	    $("#check-name-status").addClass('checking');
+	    
+	    $("#help-block-name").remove();//移除所有已经生成的name提示
+	    $('br.help-name').remove();
+	    //备注：生成的 br 元素里面要有 2 个 css。 help:给 submit 批量删除，help-name: 给ajax指定删除
+	    
+	    	   	    
+	    //var url = "/check_availability";         
+	    $.ajax({
+	            type : 'POST',
+	            url  : rootUrl + '/check_availability',//传到submit.php
+	            data : formData,
+	            dataType : 'json',
+	            success : function (data) {
+	            	//alert("done"); console.log("done");
+				    if (!data.success) {//如果有错误				    	
+				    	//alert("error");				    	
+				    	if (data.errors.name) {
+
+				    		$("#check-name-status").removeClass('checking').addClass('error-status');
+				    		$('#contact_form_log').find('.div-name').append('<span class="help-block" id="help-block-name">' + data.errors.name + '</span>'+'<br class="help help-name">');					    		
+				    	}
+				    	else{
+				    		$("#check-name-status").removeClass('checking').addClass('success-status');
+				    		$("#help-block-name").remove();
+				    		$('br.help-name').remove();
+				    	}
+				    }
+				    else{  //alert("success");
+					    $("#check-name-status").removeClass('checking').addClass('success-status');
+					    $("#help-block-name").remove();
+					    $('br.help-name').remove();
+					}
+	            },
+	            error: function(data){
+	            	// for debug
+	            	console.log(data);
+	            	console.log("error");
+	            }
+	        });	    
+	}
+
+	function checkEmail() {
+		//	$(".help-block").remove();//清除所有于submit 有关的提示
+		//   $('br.help').remove();
+	     
+		var formData = {//先从contact.php传到这里，然后再传到submit.php
+	            'name' : $('input[name="name"]').val(),
+	            'email' : $('input[name="email"]').val(),
+	            'tel' : $('input[name="tel"]').val(),
+	            'message' : $('textarea[name="message"]').val(),
+	            'code' : $('input[name="6_letters_code"]').val()
+	        };
+	        //alert(JSON.stringify(formData));
+	        	       
+		$("#check-email-status").removeClass('error-status');
+	    $("#check-email-status").removeClass('success-status');
+	    $("#check-email-status").addClass('checking');
+	    
+	    $("#help-block-email").remove();
+	    $('br.help-email').remove();
+	    //备注：生成的 br 元素里面要有 2 个 css。 help:给 submit 批量删除，help-name: 给ajax指定删除
+	    
+	    //var url = "/check_availability";         
+	    $.ajax({
+	            type : 'POST',
+	            url  : rootUrl + '/check_availability',//传到submit.php
+	            data : formData,
+	            dataType : 'json',
+	            success : function (data) {
+	            	//alert("done"); console.log("done");
+				    if (!data.success) {//如果有错误				    	
+				    	//alert("error");				    	
+				    	if (data.errors.email) {
+
+				    		$("#check-email-status").removeClass('checking').addClass('error-status');
+	             			$('#contact_form_log').find('.div-email').append('<span class="help-block" id="help-block-email">' + data.errors.email + '</span>'+'<br class="help help-email">');				    		
+				    	}
+				    	else{
+				    		$("#check-email-status").removeClass('checking').addClass('success-status');
+		            		$("#help-block-email").remove();
+		                    $('br.help-email').remove();
+				    	}
+				    }
+				    else{  //alert("success");
+					    $("#check-email-status").removeClass('checking').addClass('success-status');
+			    		$("#help-block-email").remove();
+			    	    $('br.help-email').remove();
+					}
+	            },
+	            error: function(data){
+	            	// for debug
+	            	console.log(data);
+	            	console.log("error");
+	            }
+	        });	    	    	    
+	}
+
+	function checkTel() {
+		//	$(".help-block").remove();//清除所有于submit 有关的提示
+		//   $('br.help').remove();
+	     
+		var formData = {//先从contact.php传到这里，然后再传到submit.php
+	            'name' : $('input[name="name"]').val(),
+	            'email' : $('input[name="email"]').val(),
+	            'tel' : $('input[name="tel"]').val(),
+	            'message' : $('textarea[name="message"]').val(),
+	            'code' : $('input[name="6_letters_code"]').val()
+	        };
+	        //alert(JSON.stringify(formData));
+	        
+	        
+	        
+		$("#check-tel-status").removeClass('error-status');
+	    $("#check-tel-status").removeClass('success-status');
+	    $("#check-tel-status").addClass('checking');
+	    
+	    $("#help-block-tel").remove();
+	    $('br.help-tel').remove();
+	   
+
+        //var url = "/check_availability";         
+        $.ajax({
+                type : 'POST',
+                url  : rootUrl + '/check_availability',//传到submit.php
+                data : formData,
+                dataType : 'json',
+                success : function (data) {
+                	//alert("done"); console.log("done");
+    			    if (!data.success) {//如果有错误				    	
+    			    	//alert("error");				    	
+    			    	if (data.errors.tel) {
+
+    			    		$("#check-tel-status").removeClass('checking').addClass('error-status');
+	             			$('#contact_form_log').find('.div-tel').append('<span class="help-block" id="help-block-tel">' + data.errors.tel + '</span>'+'<br class="help help-tel">');			    		
+    			    	}
+    			    	else{
+    			    		$("#check-tel-status").removeClass('checking').addClass('success-status');
+	            			$("#help-block-tel").remove();
+	    					$('br.help-tel').remove();
+    			    	}
+    			    }
+    			    else{  //alert("success");
+    				    $("#check-tel-status").removeClass('checking').addClass('success-status');
+						$("#help-block-tel").remove();
+					    $('br.help-tel').remove();
+    				}
+                },
+                error: function(data){
+                	// for debug
+                	console.log(data);
+                	console.log("error");
+                }
+            });	    	    
+	}
+
+	function checkMessage() {
+		//	$(".help-block").remove();//清除所有于submit 有关的提示
+		//   $('br.help').remove();
+	     
+		var formData = {//先从contact.php传到这里，然后再传到submit.php
+	            'name' : $('input[name="name"]').val(),
+	            'email' : $('input[name="email"]').val(),
+	            'tel' : $('input[name="tel"]').val(),
+	            'message' : $('textarea[name="message"]').val(),
+	            'code' : $('input[name="6_letters_code"]').val()
+	        };
+	        //alert(JSON.stringify(formData));
+	        
+	        
+	        
+		$("#check-message-status").removeClass('error-status');
+	    $("#check-message-status").removeClass('success-status');
+	    $("#check-message-status").addClass('checking');
+	    
+	    $("#help-block-message").remove();
+	    $('br.help-message').remove();
+	   
+
+	    //var url = "/check_availability";         
+	    $.ajax({
+	            type : 'POST',
+	            url  : rootUrl + '/check_availability',//传到submit.php
+	            data : formData,
+	            dataType : 'json',
+	            success : function (data) {
+	            	//alert("done"); console.log("done");
+				    if (!data.success) {//如果有错误				    	
+				    	//alert("error");				    	
+				    	if (data.errors.message) {
+
+				    		$("#check-message-status").removeClass('checking').addClass('error-status');
+	             			$('#contact_form_log').find('.div-message').append('<span class="help-block" id="help-block-message">' + data.errors.message + '</span>'+'<br class="help help-message">');
+				    		
+				    	}
+				    	else{
+				    		$("#check-message-status").removeClass('checking').addClass('success-status');
+	            			$("#help-block-message").remove();
+	    					$('br.help-message').remove();
+				    	}
+				    }
+				    else{  //alert("success");
+					    $("#check-message-status").removeClass('checking').addClass('success-status');
+						$("#help-block-message").remove();
+					    $('br.help-message').remove();
+					}
+	            },
+	            error: function(data){
+	            	// for debug
+	            	console.log(data);
+	            	console.log("error");
+	            }
+	        });	    	    
+	}
+
+
+
+
+	function checkCaptcha() {
+		//	$(".help-block").remove();//清除所有于submit 有关的提示
+		//   $('br.help').remove();
+	     
+		var formData = {//先从contact.php传到这里，然后再传到submit.php
+	            'name' : $('input[name="name"]').val(),
+	            'email' : $('input[name="email"]').val(),
+	            'tel' : $('input[name="tel"]').val(),
+	            'message' : $('textarea[name="message"]').val(),
+	            'code' : $('input[name="6_letters_code"]').val()
+	        };
+	        //alert(JSON.stringify(formData));
+	        
+	        
+		$("#check-code-status").removeClass('error-status');
+	    $("#check-code-status").removeClass('success-status');
+	    $("#check-code-status").addClass('checking');
+	    
+	    $("#help-block-code").remove();
+	    $('br.help-code').remove();
+	    
+	    //var url = "/check_availability";         
+	    $.ajax({
+	            type : 'POST',
+	            url  : rootUrl + '/check_availability',//传到submit.php
+	            data : formData,
+	            dataType : 'json',
+	            success : function (data) {
+	            	//alert("done"); console.log("done");
+				    if (!data.success) {//如果有错误				    	
+				    	//alert("error");				    	
+				    	if (data.errors.code) {
+
+				    		$("#check-code-status").removeClass('checking').addClass('error-status');
+	                        $('#contact_form_log').find('.div-code').append('<span class="help-block" id="help-block-code">' + data.errors.code + '</span>'+'<br class="help help-code">');			    		
+				    	}
+				    	else{
+				    		$("#check-code-status").removeClass('checking').addClass('success-status');
+	            		 	$("#help-block-code").remove();
+	    					$('br.help-code').remove();
+				    	}
+				    }
+				    else{  //alert("success");
+					    $("#check-code-status").removeClass('checking').addClass('success-status');
+		 				$("#help-block-code").remove();
+	    				$('br.help-code').remove();
+					}
+	            },
+	            error: function(data){
+	            	// for debug
+	            	console.log(data);
+	            	console.log("error");
+	            }
+	        });	    
+	}
+
+
+	function checkData() {
+		
+		
+		//	$(".help-block").remove();//清除所有于submit 有关的提示
+		//   $('br.help').remove();
+	     
+		var formData = {//先从contact.php传到这里，然后再传到submit.php
+	            'name' : $('input[name="name"]').val(),
+	            'email' : $('input[name="email"]').val(),
+	            'tel' : $('input[name="tel"]').val(),
+	            'message' : $('textarea[name="message"]').val(),
+	            'code' : $('input[name="6_letters_code"]').val()
+	        };
+	        //alert(JSON.stringify(formData));
+	        
+		
+
+
+	$("#check-code-status").removeClass('error-status');
+	$("#check-code-status").removeClass('success-status');
+	$("#check-code-status").addClass('checking');
+
+
+    //var url = "/check_availability";         
+	    $.ajax({
+	            type : 'POST',
+	            url  : rootUrl + '/check_availability',//传到submit.php
+	            data : formData,
+	            dataType : 'json',
+	            success : function (data) {
+	            	//alert("done"); console.log("done");
+				    if (!data.success) {//如果有错误				    	
+				    	//alert("error");				    	
+				    	if (data.errors.name) {
+
+				    		$("#check-code-status").removeClass('checking').addClass('error-status');				    		
+				    	}
+				    	else{
+				    		$("#check-name-status").removeClass('checking').addClass('error-status');;
+				    	}
+				    }
+				    else{  //alert("success");
+					    $("#check-code-status").removeClass('checking').addClass('success-status');
+					}
+	            },
+	            error: function(data){
+	            	// for debug
+	            	console.log(data);
+	            	console.log("error");
+	            }
+	        });	    	        
+	        }
+
+</script>
+
+<div class="content">
+	<div class="row">
+		<div id="contact_wrap">
+			<div id="map-canvas">
+			</div>
+			<div id="contactInfo">
+				<div class="myInfo">
+					<h1>
+						Contact Us
+					</h1>
+					<div class="contact_one">
+						<p class="pt15">
+							<i>Name</i>： Dong Liu
+						</p>
+						<p class="pt15">
+							<i>Position</i>： Project Manager/Developer
+						</p>
+						<p>
+							<i>Tel</i>： 917-667-5821
+						</p>
+						<p>
+							<i>QQ</i>： 1079190943
+						</p>
+						<p>
+							<i>Email</i>：
+							<a href="Mail to:111111@QQ.com" target="_blank" title="E-mail me">
+								DongLiu@momoteks.com
+							</a>
+						</p>
+						<p>
+							<i>Address</i>： 79 72nd st, Brooklyn NY 11209
+						</p>
+					</div>
+					<div class="contact_two">
+						<p class="pt15">
+							<i>Name</i>： Richard Guo
+						</p>
+						<p class="pt15">
+							<i>Position</i>： Sales Representative
+						</p>
+						<p>
+							<i>Tel</i>： 732-312-5712
+						</p>
+						<p>
+							<i>QQ</i>： 2972129759
+						</p>
+						<p>
+							<i>Email</i>：
+							<a href="Mail to:111111@QQ.com" target="_blank" title="E-mail me">
+								RichardGuo@momoteks.com
+							</a>
+						</p>
+						<p>
+							<i>Address</i>： 
+						</p>
+					</div>
+				</div>
+				
+				{{#if errors}}
+				<div class="alert alert-danger">
+					{{#each errors}}
+					<p>{{ this.msg }}</p>
+					{{/each}}
+				</div>
+				{{/if}}
+
+				<div id="contact_form_log">
+					<div class="div-name"></div>
+					<div class="div-email"></div>
+					<div class="div-tel"></div>
+					<div class="div-message"></div>
+					<div class="div-code"></div>
+					<div class="div-success"></div>
+				</div>
+				<form method="post" name="contact_form" action="submit.php" id="contact-form" role="form">
+					<dl class="form_left">
+						<dd>
+							<input type="text"  name="name" class="text info" id="name" placeholder="Name" onchange="checkName()" />
+							<span id="check-name-status" class="input-check-status"></span>
+						</dd>
+						<dd>
+							<input type="text"    name="email" class="text" id="email" placeholder="Email" onchange="checkEmail()" />
+							<span id="check-email-status" class="input-check-status"></span>
+						</dd>
+						<dd>
+							<input type="text"   name="tel" class="text" id="tel" placeholder="Tel" onchange="checkTel()"/>
+							<span id="check-tel-status" class="input-check-status"></span>
+						</dd>
+						<dd class="code-bar">
+							{{!-- <img src="captcha_code_file.php?rand=<?php echo rand(); ?>" id='captchaimg' /> --}}
+							{{!-- <img src="/captcha.png" id='captchaimg'/> --}}
+							<img src="/checkcode?width=80&height=30" onclick="this.src='/checkcode?width=80&height=30rand='+Math.random();" id='captchaimg'/>
+							{{!-- width=80  height=30  加一个随机数用于点击以后的刷新 --}}
+							<p>
+								Enter the code :
+								<br>
+								
+								<a href='javascript: refreshCaptcha();'>
+									refresh
+								</a>
+							</p>
+							
+							<input id="6_letters_code" name="6_letters_code" type="text" class="code" onblur="checkCaptcha()"/>
+							<!--<span id="user-availability-status" >
+								
+							</span>-->
+							<span id="check-code-status"></span>
+							<!--<p><img src="images/loader.gif" id="loaderIcon" style="display:none" /></p>-->
+						</dd>
+						<!-- Important: if you add any fields to this page, you will also need to update the php script -->
+						<!--隐藏字段，用来迷惑攻击软件-->
+						<p class="antispam">
+							Leave this empty:
+							<br />
+							<input name="url" />
+						</p>
+					</dl>
+					<dl class="form_right">
+						<dd>
+							<textarea id="message" name="message" type="text" class="Message" placeholder="Leave Your Message" onchange="checkMessage()"></textarea>
+						</dd>
+						<span id="check-message-status" class="message-check-status"></span>
+						<dd>
+							<input type="submit" name="submit" value="Submit" class="btnSubmit" id="submit-btn"/>
+						</dd>
+					</dl>
+				</form>
+			</div>		
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,160 @@
+/*.m-about_wrap  模块或分页的样式前面必须要加。这样可以防止混淆。防止全局污染*/
+@media only screen and (min-width: 320px) {
+	.wrapper{  /*320 iphone 5*/  /*160px 递增*/	    
+	    background-image: none;	    
+	    height: auto; /*不限定高度，这句不能少*/
+	}
+	.content {
+	    width: 100%;
+	    max-width: 1000px;
+	    padding-top: 20px;
+	    padding-right: 10px;
+	    padding-left: 10px;
+	    /*padding-top: 20px;*/
+	    margin-right: auto;
+	    margin-left: auto;
+	    height:auto;
+	    /*background-color: red;*/
+	}
+
+	#about_wrap {
+		padding: 0 0 20px 0;
+		/*width: 1000px;*/
+		width: 100%;
+		margin: 0 auto;
+		margin-top: 20px;
+		min-height: 700px;
+	}
+
+	#about_wrap .about {
+		margin: 0 auto;
+		width: 100%;		
+	}
+	#about_wrap p{
+		font-size: 16px;
+		font-family: arial;
+		line-height: 160%;
+		/*text-align: justify;*/		
+	}
+
+	#about_wrap h1 {
+	    width: 100%;
+	    height: 40px;
+	    line-height: 40px;
+	    font-size: 36px;
+	    color: #333;
+	    text-indent: 0px;
+	    border-bottom: 1px solid #666;
+	    letter-spacing: 1px;/*每个字中间空1px*/
+	    margin: 0 0 10px 0;
+	}
+
+	#about_wrap h1 > span{
+	    border-bottom: 1px solid #c93756;
+	}
+
+	#about_wrap h2{
+	    font-size: 24px;
+	    height:50px;
+	    line-height: 50px;
+	    background: #F9F9F9;
+	    border-left: 5px solid #C93756;
+	    /*border-bottom: none;*/
+	    padding-left: 15px;
+	    letter-spacing: 1px;/*每个字中间空1px*/
+	    margin-bottom: 15px;
+	}
+}
+
+@media only screen and (min-width: 375px) {
+}
+
+@media only screen and (min-width: 414px) {
+	#about_wrap p{
+		font-size: 18px;
+		
+		
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#about_wrap {
+		
+		min-height: 1020px;
+	}
+}
+
+
+@media only screen and (min-width: 1025px) {
+	.wrapper{  /*320 iphone 5*/  /*160px 递增*/	    
+	    background-image: none;	    
+	    height: auto; /*不限定高度，这句不能少*/
+	}
+	.container-fluid { 
+	    
+	    margin-top: 50px; /*在这里控制内容的上下 margin 和 padding*/ /* header 50 + 间距 20 = 70*/
+	}
+
+	.content {
+	    width: 100%;
+	    max-width: 1000px;
+	    padding-top: 0;
+	    padding-right: 10px;
+	    padding-left: 10px;
+	    /*padding-top: 20px;*/
+	    /*margin-right: auto;
+	    margin-left: auto;*/
+	    height:auto;
+	    /*background-color: red;*/
+	}
+
+	#about_wrap {
+		padding: 0 0 20px 0;
+		width: 1000px;
+		margin: 0 auto;
+		/*margin-top: 20px;*/
+		margin-top: 0;
+		min-height: 700px;
+	}
+
+	#about_wrap .about {
+		margin: 0 auto;
+		width: 100%;
+		
+	}
+
+	#about_wrap p{
+		font-size: 18px;
+		font-family: arial;
+		line-height: 160%;
+		
+	}
+
+	#about_wrap h1 {
+	    width: 100%;
+	    height: 40px;
+	    line-height: 40px;
+	    font-size: 36px;
+	    color: #333;
+	    text-indent: 0px;
+	    border-bottom: 1px solid #666;
+	    letter-spacing: 1px;/*每个字中间空1px*/
+	    margin: 0 0 10px 0;
+	}
+
+	#about_wrap h1 > span{
+	    border-bottom: 1px solid #c93756;
+	}
+	
+	#about_wrap h2{
+	    font-size: 24px;
+	    height:50px;
+	    line-height: 50px;
+	    background: #F9F9F9;
+	    border-left: 5px solid #C93756;
+	    /*border-bottom: none;*/
+	    padding-left: 15px;
+	    letter-spacing: 1px;/*每个字中间空1px*/
+	    margin-bottom: 15px;
+	}
+}
