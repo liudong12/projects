@@ -37,8 +37,11 @@ var userRoutes = require('./routes/user'); //导入路由 将接localhost:3000/u
 
 var app = express(); //Creates an Express application. The express() function is a top-level function exported by the express module.
 
-mongoose.connect('localhost:27017/shopping'); //创建数据库连接 //传入 the path of our server，端口号在运行mongodb的命令行里面找//"shopping" is the database name because the mongodb server might hold multiple database
+//mongoose.connect('localhost:27017/shopping'); //创建数据库连接 //传入 the path of our server，端口号在运行mongodb的命令行里面找//"shopping" is the database name because the mongodb server might hold multiple database
 //注意：你不需要去创建数据库，这样写好以后，会自动创建的
+
+mongoose.connect('ec2-52-90-161-181.compute-1.amazonaws.com:27017/shopping');
+
 require('./config/passport');//相当于把这个文件里面的东西复制过来
 
 // view engine setup  第一步 //本来的写法
