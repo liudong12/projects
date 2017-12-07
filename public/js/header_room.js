@@ -1,4 +1,4 @@
-(function($) { 
+(function($) {
 	var cubuk_seviye = $(document).scrollTop();
 		var header_yuksekligi = $('.a').outerHeight();
 

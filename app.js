@@ -37,10 +37,11 @@ var userRoutes = require('./routes/user'); //导入路由 将接localhost:3000/u
 
 var app = express(); //Creates an Express application. The express() function is a top-level function exported by the express module.
 
-//mongoose.connect('localhost:27017/shopping'); //创建数据库连接 //传入 the path of our server，端口号在运行mongodb的命令行里面找//"shopping" is the database name because the mongodb server might hold multiple database
+mongoose.connect('localhost:27017/shopping'); //创建数据库连接 //传入 the path of our server，端口号在运行mongodb的命令行里面找//"shopping" is the database name because the mongodb server might hold multiple database
 //注意：你不需要去创建数据库，这样写好以后，会自动创建的
 
-mongoose.connect('ec2-52-90-161-181.compute-1.amazonaws.com:27017/shopping');
+//ec2-52-90-161-181.compute-1.amazonaws.com
+//mongoose.connect('ec2-52-90-161-181.compute-1.amazonaws.com:27017/shopping');
 
 require('./config/passport');//相当于把这个文件里面的东西复制过来
 
@@ -86,12 +87,12 @@ app.use(passport.session());//set to use session to store the users
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {//this is default express middleware set up
-    res.locals.login = req.isAuthenticated();//在res对象里面的locals对象里面添加自定义的字段login。req.isAuthenticated()返回true or false.//这句话的目的是 i want to have a login varible in my view //i am bascially setting up this (res.locals.login) gobal varible here.
-    res.locals.session = req.session;//make my session available in my views //this just make sure that i may access session in all my templates without having to pass it 分开的 in my routers files or in my routers functions
-    
-    //res.locals.successMessages = req.flash('successMessages').toString();//使用 connect flash 来处理成功提示信息
-    //res.locals.errorMessages = req.flash('errorMessages').toString();//使用 connect flash 来处理错误提示信息
-    next();
+  res.locals.login = req.isAuthenticated();//在res对象里面的locals对象里面添加自定义的字段login。req.isAuthenticated()返回true or false.//这句话的目的是 i want to have a login varible in my view //i am bascially setting up this (res.locals.login) gobal varible here.
+  res.locals.session = req.session;//make my session available in my views //this just make sure that i may access session in all my templates without having to pass it 分开的 in my routers files or in my routers functions
+  
+  //res.locals.successMessages = req.flash('successMessages').toString();//使用 connect flash 来处理成功提示信息
+  //res.locals.errorMessages = req.flash('errorMessages').toString();//使用 connect flash 来处理错误提示信息
+  next();
 });
 
 //应用于指定路径的请求 //第二组过滤

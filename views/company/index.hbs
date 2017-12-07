@@ -9,8 +9,10 @@
         </div>
         <div class="index-right-half">
             <div class="main-contact main-center">
-                <h1>GET <span>50%</span> Discount </h1>
-                <form class="" method="post" action="" id="mainForm">
+                <h1>GET <span>20%</span> Discount </h1>
+                <div class="main-form-submitting"></div>
+                <div class="main-form-submitted"><p>Your request has been submitted.</p></div>
+                <form class="" method="post" action="/homeFormProcess" id="mainForm" onsubmit="return false;">
                     <input type="hidden" name="package" value="50% Discount">
                     <div class="form-group">
                         <label for="name" class="control-label">Your Name</label>
@@ -292,10 +294,12 @@
                     </div>
 
                     <div class="form-group ">
-                    <a href="javascript:void(0);" type="button" id="button2" class="btn btn-primary btn-lg btn-block contact-button">Register</a>
+                    {{!-- <a href="javascript:void(0);" type="submit" id="button2" class="btn btn-primary btn-lg btn-block contact-button">Contact Me</a> --}}
+                    <button type="submit" name="submit" value="Submit" class="btn btn-primary btn-lg btn-block contact-button" id="button2">Contact Me</button>
                     </div>
 
-                    <p> <em>*</em>Our Design Consultant will call you to confirm your package</p>
+                    <p> <em>*</em>Our Design Consultant will contact you about your project.</p>
+                    {{!-- Our Design Consultant will call you to confirm your package --}}
                 </form>
             </div>      
         </div>

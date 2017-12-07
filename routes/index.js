@@ -1,20 +1,130 @@
 var express = require('express');
 var router = express.Router();
 var Cart = require('../models/cart');
-
 var Product = require('../models/product');
 var Size = require('../models/size');
 var Order = require('../models/order');
-
 var Hbs = require('hbs');
+var nodemailer = require('nodemailer');  //用来将表单发送到邮箱的模块  //在这里导入
 
 
-/* GET home page. */
+router.post('/formProcess', function (req, res, next) {
+    if(req.xhr){
+        var data=req.body;  //console.log("data------------" + JSON.stringify(data));
+        
+        var smtpTransport = nodemailer.createTransport({
+           service: "Gmail", 
+           auth: {
+           user: "liudong12b@gmail.com",
+           pass: "llg11111"
+           }
+        });
+         
+        smtpTransport.sendMail({  //email options
+           // from: "momo liu <liudong12b@gmail.com>",
+           // to: "Dong Liu <liudong12b@gmail.com>", // receiver
+           // subject: "Emailing with nodemailer", // subject
+           // html: "here your data goes" // body (var data which we've declared)
+           from: data.name[0] + "<liudong12b@gmail.com>",
+           to: "Dong Liu <liudong12@hotmail.com>", // receiver
+           subject: data.email[0], // 因为data.email是一个数组 ["liudong12@hotmail.com", ""]
+           html: data.message[0] // body (var data which we've declared)
+        }, function(error, result){  //callback
+            
+            if(error){
+               console.log("Message sending error:" + JSON.stringify(error));
+
+               //返回给ajax
+               var response = {};
+               response.success = false;
+               response.message = 'Error when sending message.';
+               res.json(response);              
+            }
+            else{
+               //console.log("Message sent: " + res);
+
+               //返回给ajax
+               var response = {};
+               response.success = true;
+               response.message = 'Congratulations. Your message has been sent successfully. We will contact you as soon as possible.';
+               res.json(response);              
+            }
+
+            smtpTransport.close(); 
+        });
+
+        
+        //res.json(response);        
+    }
+    else {
+        var response = {};
+        response.msg = 'Illegal Access';
+
+        res.json(response);
+    }
+});
+
+router.post('/homeFormProcess', function (req, res, next) { //console.log("data------------");
+    if(req.xhr){
+        var data=req.body;  //console.log("data------------" + JSON.stringify(data));
+        
+        var smtpTransport = nodemailer.createTransport({
+           service: "Gmail", 
+           auth: {
+           user: "liudong12b@gmail.com",
+           pass: "llg11111"
+           }
+        });
+         
+        smtpTransport.sendMail({  //email options
+           // from: "momo liu <liudong12b@gmail.com>",
+           // to: "Dong Liu <liudong12b@gmail.com>", // receiver
+           // subject: "Emailing with nodemailer", // subject
+           // html: "here your data goes" // body (var data which we've declared)
+           from: data.name[0] + "<liudong12b@gmail.com>",
+           to: "Dong Liu <liudong12@hotmail.com>", // receiver
+           subject: data.email[0] + " home-form", // 因为data.email是一个数组 ["liudong12@hotmail.com", ""]
+           html: data.tel[0] // body (var data which we've declared)
+        }, function(error, result){  //callback
+            
+            if(error){
+               console.log("Message sending error:" + JSON.stringify(error));
+
+               //返回给ajax
+               var response = {};
+               response.success = false;
+               response.message = 'Error when sending message.';
+               res.json(response);              
+            }
+            else{
+               //console.log("Message sent: " + res);
+
+               //返回给ajax
+               var response = {};
+               response.success = true;
+               response.message = 'Congratulations. Your message has been sent successfully. We will contact you as soon as possible.';
+               res.json(response);               
+            }
+
+            smtpTransport.close(); 
+        });
+        
+        //res.json(response);        
+    }
+    else {
+        var response = {};
+        response.msg = 'Illegal Access';
+
+        res.json(response);
+    }
+});
+
+
 router.get('/', function (req, res, next) {  
        
-    //var scripts = ['/js/shop.shopping-cart.js'];
+    var scripts = ['/js/jquery.js', '/js/jquery.form.js', 'js/jquery.validate.js', '/js/company.index.js', '/js/index.js'];
     var css = ['/css/company.index.css'];   
-    res.render('company/index', {title: 'Momoteks', css: css});   
+    res.render('company/index', {title: 'Momoteks', css: css, scripts: scripts});   
 });
 
 //验证码
@@ -71,7 +181,8 @@ router.get('/about', function (req, res, next) {
 
 router.get('/contact', function (req, res, next) {  
        
-    var scripts = ['/js/jquery.min.js', '/js/contact-form.js', '/js/company.contact.js'];
+    var scripts = ['/js/jquery.form.js', 'js/jquery.validate.js', '/js/company.contact.js', '/js/contact-form.js','/js/test.js'];
+    //var scripts = ['/js/jquery.form.js', '/js/company.contact.js', '/js/contact-form.js'];
     var css = ['/css/company.contact.css'];   
     res.render('company/contact', {title: 'About', css: css, scripts: scripts});   
 });
@@ -90,7 +201,7 @@ router.get('/faq', function (req, res, next) {
     res.render('company/faq', {title: 'FAQ', css: css, scripts: scripts});   
 });
 
-router.post('/check_availability', function(req, res, next) { console.log("zzz");
+router.post('/check_availability', function(req, res, next) { //console.log("zzz");
 
     var scripts = ['/js/shop.product-detail.js', '/js/folding.js', '/js/jquery.form.js', '/js/shop.edit-cart-item.js'];
     var css = ['/css/shop.product-detail.css', '/css/shop.edit-cart-item.css'];
@@ -102,7 +213,7 @@ router.post('/check_availability', function(req, res, next) { console.log("zzz")
 
             res.json(response);      
         }
-        console.log("aaa");
+        //console.log("aaa");
         setTimeout(
           function() 
           {
@@ -148,11 +259,10 @@ router.post('/check_availability', function(req, res, next) { console.log("zzz")
             var tel = req.body.tel;
             var message = req.body.message;
             var code = req.body.code;
-            console.log("name" + name);
-            console.log("email" + email);
+            //console.log("name" + name);
+            //console.log("email" + email);
 
-            if (name == "") {
-                   
+            if (name == "") {                  
                 errors["name"] = 'Name Required';
             }
             if (email == "") {
@@ -173,12 +283,12 @@ router.post('/check_availability', function(req, res, next) { console.log("zzz")
             // if((req.session.checkcode == "") || (!req.session.checkcode == code)) { console.log(req.session.checkcode);
             //     errors["code"] = 'Code Not Match';
             // }
-            console.log("req.session.checkcode: "+ req.session.checkcode);
-            console.log("code: "+ code);
-            if(code == "") { console.log("a"+ req.session.checkcode);
+            //console.log("req.session.checkcode: "+ req.session.checkcode);
+            //console.log("code: "+ code);
+            if(code == "") { //console.log("a"+ req.session.checkcode);
                 errors["code"] = 'Code Required';
             }
-            if(code != req.session.checkcode) { console.log("b"+ req.session.checkcode);
+            if(code != req.session.checkcode) { //console.log("b"+ req.session.checkcode);
                 errors["code"] = 'Code Not Match';
             }
             if (errors.isEmpty) {
@@ -283,8 +393,6 @@ router.get('/edit-cart-item/:sku', function(req, res, next) {
         var product =  cart.items[sku]['item'];  //用这个，因为这个 $product 里面有sizeName 字段 (在postAddToCartAjax里面添加的字段)  
         var productId = product._id;
         var qty =  cart.items[sku]['qty'];//商品数量
-
-        
         
         var promise = Product.findById(productId, function(err, product) {//要是没找到返回err，要是找到就返回product
             if (err) {
